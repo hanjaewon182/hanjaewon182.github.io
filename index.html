@@ -272,6 +272,14 @@
       background: var(--accent);
     }
 
+    /* 카드 전체 클릭: 제목 링크에 class="card-link"를 달면 카드 어디를 눌러도 이동 */
+    .project-card { position: relative; }
+    .project-card .card-link { color: inherit; }
+    .project-card .card-link::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: 8px; }
+    .project-card:has(.card-link) { cursor: pointer; }
+    .project-card .card-link:hover { text-decoration: none; }
+    .project-footer a { position: relative; z-index: 2; }
+
     .project-footer {
       margin-top: 16px;
       padding-top: 12px;
@@ -375,7 +383,7 @@ Tools & Environment: Git / GitHub, VS Code, Visual Studio
         <article class="project-card">
           <div>
             <div class="project-header">
-              <h3><a href="notice-bot.html" style="color:inherit">한기대 공지비서</a></h3>
+              <h3><a href="notice-bot.html" class="card-link">한기대 공지비서</a></h3>
               <span class="project-period">2026.11</span>
             </div>
             <p class="project-role">팀장 · 4인 팀 (창의적공학설계)</p>
